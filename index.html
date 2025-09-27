@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pong v1.0</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: Verdana;
+        text-align: center;
+      }
+      canvas {
+        display: block;
+        margin: 20px auto;
+        border: 4px solid white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Jay Nipper - SSE 657 - Mercer University - FA2024 - Pong Game Assignment
+    </p>
+    <p>Keys: "N" New Game / Left Paddle: W-S keys / Right Paddle: P-L keys</p>
+    <canvas id="pongscreen" width="400" height="600"></canvas>
+    <audio id="start"><source src="PongSounds/pongstart.wav" /></audio>
+    <audio id="wall"><source src="PongSounds/pongwall.wav" /></audio>
+    <audio id="paddle"><source src="PongSounds/pongpaddle.wav" /></audio>
+    <audio id="point"><source src="PongSounds/pongpoint.wav" /></audio>
+    <script src="pong.js"></script>
+  </body>
+</html>
