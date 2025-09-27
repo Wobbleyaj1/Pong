@@ -6,6 +6,13 @@
 const canvas = document.getElementById("pongscreen");
 const ctx = canvas.getContext("2d");
 
+// Audio Elements
+
+const audioStart = document.getElementById("start");
+const audioWall = document.getElementById("wall");
+const audioPaddle = document.getElementById("paddle");
+const audioPoint = document.getElementById("point");
+
 // Game State
 
 let gamePaused = true; // Game starts paused
@@ -52,6 +59,8 @@ function updateBall() {
   // Bounce top/bottom
   if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
     ball.ySpeed *= -1;
+    audioWall.currentTime = 0;
+    audioWall.play();
   }
 
   // Left paddle
@@ -64,6 +73,8 @@ function updateBall() {
     ball.xSpeed = Math.abs(ball.xSpeed);
     let hit = (ball.y - (left.y + left.height / 2)) / (left.height / 2);
     ball.ySpeed = hit * 5;
+    audioPaddle.currentTime = 0;
+    audioPaddle.play();
   }
 
   // Right paddle
@@ -76,15 +87,21 @@ function updateBall() {
     ball.xSpeed = -Math.abs(ball.xSpeed);
     let hit = (ball.y - (right.y + right.height / 2)) / (right.height / 2);
     ball.ySpeed = hit * 5;
+    audioPaddle.currentTime = 0;
+    audioPaddle.play();
   }
 
   // Scoring
   if (ball.x - ball.radius < 0) {
     model.score.right += 1;
+    audioPoint.currentTime = 0;
+    audioPoint.play();
     gamePaused = true;
     resetBall();
   } else if (ball.x + ball.radius > canvas.width) {
     model.score.left += 1;
+    audioPoint.currentTime = 0;
+    audioPoint.play();
     gamePaused = true;
     resetBall();
   }
@@ -159,8 +176,11 @@ function Controller() {
     if (
       (e.key.toLowerCase() === "n" || e.key.toLowerCase() === "r") &&
       gamePaused
-    )
+    ) {
+      audioStart.currentTime = 0;
+      audioStart.play();
       f_startgame();
+    }
   });
 
   document.addEventListener("keyup", (e) => {
