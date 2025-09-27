@@ -1,0 +1,31 @@
+# Pong Game v1.0
+
+A simple Pong game implemented in JavaScript using HTML5 Canvas.
+
+## Overview
+
+This is a browser-based implementation of the classic Pong game. It features two-player paddle controls, a bouncing ball, score tracking, and game pause functionality. The game dynamically adjusts to the canvas size.
+
+## Features
+
+- Smooth paddle movement with continuous key press support
+- Ball collision with paddles and walls
+- Scoring system and automatic pause after each point
+- Fully responsive canvas for width/height changes
+- Self documented code structure using a Model-View-Controller pattern
+- JSDoc comments for documentation
+
+## Controls
+
+| Player           | Keys                       |
+| ---------------- | -------------------------- |
+| Left Paddle      | `W` (up), `S` (down)       |
+| Right Paddle     | `P` (up), `L` (down)       |
+| Start / New Game | `N` or `R` (Not specified) |
+
+## Installation
+
+1. Clone or download the repository:
+   ```bash
+   git clone https://github.com/yourusername/pong-game.git
+   ```
