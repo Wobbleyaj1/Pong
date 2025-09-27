@@ -15,9 +15,9 @@ const audioPoint = document.getElementById("point");
 
 // Game State
 
-const BALL_INITIAL_X_SPEED = 9; // Initial horizontal speed
+const BALL_INITIAL_X_SPEED = 5; // Initial horizontal speed
 const BALL_INITIAL_Y_SPEED = 4; // Initial vertical speed
-const PADDLE_SPEED = 6; // Paddle movement speed
+const PADDLE_SPEED = 4; // Paddle movement speed
 
 let gamePaused = true; // Game starts paused
 let gameRunning = false; // Prevent multiple loops
