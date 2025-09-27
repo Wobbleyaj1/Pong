@@ -1,5 +1,5 @@
 // Pong Game Assignment - MVC Architecture
-// Jay Nipper - SSE 657 - Mercer University - FA2024
+// Jay Nipper - SSE 657 - Mercer University - FA2025
 
 // Setup Canvas
 
