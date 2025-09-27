@@ -15,6 +15,10 @@ const audioPoint = document.getElementById("point");
 
 // Game State
 
+const BALL_INITIAL_X_SPEED = 9; // Initial horizontal speed
+const BALL_INITIAL_Y_SPEED = 4; // Initial vertical speed
+const PADDLE_SPEED = 6; // Paddle movement speed
+
 let gamePaused = true; // Game starts paused
 let gameRunning = false; // Prevent multiple loops
 const keysPressed = {}; // Track keys held down
@@ -28,8 +32,8 @@ let model = {
     x: canvas.width / 2,
     y: canvas.height / 2,
     radius: 10,
-    xSpeed: 3,
-    ySpeed: 2,
+    xSpeed: BALL_INITIAL_X_SPEED,
+    ySpeed: BALL_INITIAL_Y_SPEED,
   },
   leftPaddle: { x: 20, y: canvas.height / 2 - 40, width: 10, height: 80 },
   rightPaddle: {
@@ -112,12 +116,12 @@ function updateBall() {
  */
 function updatePaddles() {
   // Left paddle
-  if (keysPressed["w"]) model.leftPaddle.y -= 4;
-  if (keysPressed["s"]) model.leftPaddle.y += 4;
+  if (keysPressed["w"]) model.leftPaddle.y -= PADDLE_SPEED;
+  if (keysPressed["s"]) model.leftPaddle.y += PADDLE_SPEED;
 
   // Right paddle
-  if (keysPressed["p"]) model.rightPaddle.y -= 4;
-  if (keysPressed["l"]) model.rightPaddle.y += 4;
+  if (keysPressed["p"]) model.rightPaddle.y -= PADDLE_SPEED;
+  if (keysPressed["l"]) model.rightPaddle.y += PADDLE_SPEED;
 
   // Keep paddles inside canvas
   model.leftPaddle.y = Math.max(
@@ -196,8 +200,8 @@ function Controller() {
 function resetBall() {
   model.ball.x = canvas.width / 2;
   model.ball.y = canvas.height / 2;
-  model.ball.xSpeed = 3 * (Math.random() > 0.5 ? 1 : -1);
-  model.ball.ySpeed = 2 * (Math.random() > 0.5 ? 1 : -1);
+  model.ball.xSpeed = BALL_INITIAL_X_SPEED * (Math.random() > 0.5 ? 1 : -1);
+  model.ball.ySpeed = BALL_INITIAL_Y_SPEED * (Math.random() > 0.5 ? 1 : -1);
 }
 
 /**
