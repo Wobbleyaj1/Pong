@@ -19,7 +19,7 @@ const audioPoint = document.getElementById("point");
 
 // Tunable constants for game feel.
 const BALL_INITIAL_X_SPEED = 5;
-const BALL_INITIAL_Y_SPEED = 4;
+const BALL_INITIAL_Y_SPEED = 2;
 const PADDLE_SPEED = 4;
 
 // Control flags for the game loop and input tracking.
